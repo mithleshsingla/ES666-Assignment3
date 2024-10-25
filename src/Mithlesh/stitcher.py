@@ -20,7 +20,7 @@ class PanaromaStitcher():
             print("Need at least 2 images to stitch.")
             return None, []
         
-        max_width = 1000  # Set your desired maximum width
+        max_width = 2000  # Set your desired maximum width
         for i in range(len(all_images)):
             img = cv2.imread(all_images[i])
             height, width = img.shape[:2]
@@ -134,7 +134,7 @@ class PanaromaStitcher():
         best_inliers = []
         final_H = []
         t = 5
-        for _ in range(5):
+        for _ in range(10):
             random_pts = random.sample(good_pts, 4)  # Randomly select 4 points
             H = self.homography(random_pts)
             inliers = []
